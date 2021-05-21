@@ -41,6 +41,13 @@ private _uniforms = [
 ];
 
 this forceAddUniform selectRandom _uniforms;
+//this addItemToUniform "ACE_Flashlight_Maglite_ML300L";
+//====ACE Items====
+for "_i" from 1 to 5 do {this addItemToUniform "ACE_fieldDressing";};
+for "_i" from 1 to 2 do {this addItemToUniform "ACE_elasticBandage";};
+for "_i" from 1 to 2 do {this addItemToUniform "ACE_packingBandage";};
+this addItemToUniform "ACE_quikclot";
+this addItemToUniform "ACE_tourniquet";
 this addItemToUniform "ACE_Flashlight_Maglite_ML300L";
 
 /* ==== Backpack ====
@@ -53,6 +60,7 @@ if (random 10 < 2) then {
 	this addBackpack selectRandom _backpacks;
 };
 */
+
 
 //	==== Weapons ====
 private _gunsAndAmmo = [
