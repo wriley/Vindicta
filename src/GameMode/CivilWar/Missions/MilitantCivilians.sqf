@@ -568,13 +568,18 @@ CLASS("MilitantCiviliansAmbientMission", "AmbientMission")
 		private _radius = GETV(_city, "boundingRadius");
 		private _cityData = GETV(_city, "gameModeData");
 		private _instability = GETV(_cityData, "influence");
+        private _state = GETV(_cityData, "state");
 
 #ifdef MILITANT_CIVILIANS_TESTING
 		private _maxActive = 10;
 #else
 		// Number of active militants relates to city size and instability
 		// https://www.desmos.com/calculator/9v3zy6zn1v
-		private _maxActive = ceil (2 + (2 + 3 * _instability) * ((0.002 * _radius) ^ 2));
+		private _maxActive = 0;
+        
+        if ((_state == CITY_STATE_NEUTRAL || _state == CITY_STATE_ENEMY_CONTROL) && _instability > 0.2) then {
+            _maxActive = ceil (2 + (2 + 3 * _instability) * ((0.002 * _radius) ^ 2));
+        };
 #endif
 
 		private _deficit = _maxActive - (count _activeCivs);
@@ -628,12 +633,12 @@ CLASS("MilitantCiviliansAmbientMission", "AmbientMission")
 
 				// Add action to recruit them to your squad
 				// Disabled it for now, it's more confusing than beneficial
-				/*
+				
 				[
 					_civie, 
 					["Join me brother!", vin_fnc_CivilianJoinPlayer, [], 1.5, false, true, "", "true", 10]
 				] remoteExec ["addAction", 0, _civie];
-				*/
+				
 			};
 		};
 	ENDMETHOD;

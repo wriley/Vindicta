@@ -51,17 +51,17 @@ CLASS("CivilWarCityData", "CivilWarLocationData")
 
 		OOP_INFO_MSG("Spawning %1", [_city]);
 
-		//private _ambientMissions = T_GETV("ambientMissions");
+		private _ambientMissions = T_GETV("ambientMissions");
 		//private _pos = CALLM0(_city, "getPos");
 		//private _radius = GETV(_city, "boundingRadius");
 
 		// CivPresence civilians are being arrested too, so there is no need for it any more
 		//_ambientMissions pushBack (NEW("HarassedCiviliansAmbientMission", [_city ARG [CITY_STATE_STABLE]]));
 
-		//_ambientMissions pushBack NEW("MilitantCiviliansAmbientMission", [_city ARG [CITY_STATE_AGITATED ARG CITY_STATE_IN_REVOLT]]);
+		_ambientMissions pushBack NEW("MilitantCiviliansAmbientMission", [_city ARG [ CITY_STATE_NEUTRAL ARG CITY_STATE_ENEMY_CONTROL ]]);
 
 		// It's quite confusing so I have disabled it for now, sorry
-		//_ambientMissions pushBack NEW("SaboteurCiviliansAmbientMission", [_city ARG [CITY_STATE_AGITATED ARG CITY_STATE_IN_REVOLT]]);
+		_ambientMissions pushBack NEW("SaboteurCiviliansAmbientMission", [_city ARG [ CITY_STATE_NEUTRAL ARG CITY_STATE_ENEMY_CONTROL ]]);
 		0;
 	ENDMETHOD;
 
