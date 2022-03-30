@@ -38,7 +38,7 @@ g_BuildUI = NEW("BuildUI", []);
 (finddisplay 46) displayAddEventHandler ["KeyDown", {
 	params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];
 	//diag_log format ["KeyDown: %1", _this];
-	if (_key == DIK_U) then { // U key
+	if (_key == DIK_Y) then { // Y key
 		// Close previous menu
 		if (!(isNil "gInGameMenu")) then {
 			if (IS_OOP_OBJECT(gInGameMenu)) then {
