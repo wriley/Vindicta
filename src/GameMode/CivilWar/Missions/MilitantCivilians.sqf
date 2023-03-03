@@ -576,14 +576,16 @@ CLASS("MilitantCiviliansAmbientMission", "AmbientMission")
 		// Number of active militants relates to city size and instability
 		// https://www.desmos.com/calculator/9v3zy6zn1v
 		private _maxActive = 0;
-        
-        if ((_state == CITY_STATE_NEUTRAL || _state == CITY_STATE_ENEMY_CONTROL) && _instability > 0.2) then {
+
+		if ((_state == CITY_STATE_NEUTRAL || _state == CITY_STATE_ENEMY_CONTROL) && _instability > 0.6 && _instability < 0.99) then {
             _maxActive = ceil (2 + (2 + 3 * _instability) * ((0.002 * _radius) ^ 2));
         };
 #endif
 
 		private _deficit = _maxActive - (count _activeCivs);
+		diag_log format["AMBIENTMISSION: MilitantCivilians max: %1  need: %2  stability: %3", _maxActive, _deficit, _instability];
 		if(_deficit > 0) then {
+			diag_log format["AMBIENTMISSION: Spawning %1 civilians in %2 to do some damage", _deficit ,_city];
 			OOP_INFO_MSG("Spawning %1 civilians in %2 to do some damage", [_deficit ARG _city]);
 
 			// Create some civilians that can do some damage!
