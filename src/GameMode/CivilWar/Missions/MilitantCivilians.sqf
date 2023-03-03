@@ -577,7 +577,7 @@ CLASS("MilitantCiviliansAmbientMission", "AmbientMission")
 		// https://www.desmos.com/calculator/9v3zy6zn1v
 		private _maxActive = 0;
 
-		if ((_state == CITY_STATE_NEUTRAL || _state == CITY_STATE_ENEMY_CONTROL) && _instability > 0.6 && _instability < 0.99) then {
+		if ((_state == CITY_STATE_NEUTRAL || _state == CITY_STATE_ENEMY_CONTROL) && _instability > 0.6) then {
             _maxActive = ceil (2 + (2 + 3 * _instability) * ((0.002 * _radius) ^ 2));
         };
 #endif
