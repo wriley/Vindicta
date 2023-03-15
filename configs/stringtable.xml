@@ -946,7 +946,19 @@
 			</Key>
 			<Key ID="STR_Vindicta_Settings_Weather_Toggle_Enabled">
 				<Original>Enabled</Original>
-			</Key>				
+			</Key>	
+			<Key ID="STR_Vindicta_Settings_Ambient_Saboteur">
+				<Original>Ambient Mission Saboteurs</Original>
+			</Key>
+			<Key ID="STR_Vindicta_Settings_Ambient_Saboteur_Tooltip">
+				<Original>Spawn saboteurs in neutral or enemy held cities if influence is above 30%</Original>
+			</Key>
+			<Key ID="STR_Vindicta_Settings_Ambient_MilitantCiv">
+				<Original>Ambient Mission Militant Civilians</Original>
+			</Key>
+			<Key ID="STR_Vindicta_Settings_Ambient_MilitantCiv_Tooltip">
+				<Original>Spawn militant civilians in neutral or enemy held cities if influence is above 60%</Original>
+			</Key>
 		</Container>
 		<Container name="Diff">
 			<Key ID="STR_Vindicta_Settings_Diff">

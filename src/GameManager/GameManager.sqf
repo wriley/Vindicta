@@ -887,6 +887,9 @@ CLASS("GameManager", "MessageReceiverEx")
 			CALL_COMPILE_COMMON("Weather\initWeather.sqf");
 		}	
 		] call CBA_fnc_addSetting;
+		["vin_server_enableAmbientMissionSaboteur",		"CHECKBOX",	[LOC("Ambient_Saboteur"),				LOC("Ambient_Saboteur_Tooltip")],				[_section, LOC("Game")],	false,			true] call CBA_fnc_addSetting;
+		["vin_server_enableAmbientMissionMilitantCiv",	"CHECKBOX",	[LOC("Ambient_MilitantCiv"),			LOC("Ambient_MilitantCiv_Tooltip")],			[_section, LOC("Game")],	false,			true] call CBA_fnc_addSetting;
+
 
 		#undef LOC_SCOPE
 	ENDMETHOD;
