@@ -561,8 +561,13 @@ CLASS("SaboteurCiviliansAmbientMission", "AmbientMission")
 		private _activeCivs = T_GETV("activeCivs");
 		private _maxActive = T_GETV("maxActive");
 		private _deficit = _maxActive - (count _activeCivs);
+		private _instability = GETV(_cityData, "influence");
+        private _state = GETV(_cityData, "state");
 
-		if(_deficit > 0) then {
+		diag_log format["AMBIENTMISSION: SaboteurCivilians max: %1  need: %2  stability: %3", _maxActive, _deficit, _instability];
+
+		if((_state == CITY_STATE_NEUTRAL || _state == CITY_STATE_ENEMY_CONTROL) && _instability > 0.3 && _instability < 0.99 && _deficit > 0) then {
+			diag_log format["AMBIENTMISSION: Spawning %1 civilians in %2 to blow shit up!", _deficit, _city];
 			OOP_INFO_MSG("Spawning %1 civilians in %2 to blow shit up!", [_deficit ARG _city]);
 			private _pos = CALLM0(_city, "getPos");
 			private _radius = GETV(_city, "boundingRadius");
